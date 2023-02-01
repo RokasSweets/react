@@ -13,3 +13,21 @@ window.addEventListener("load", (event) => {
 
   console.log('A && B', A && B);
   console.log('A || B', A || B);
+
+  /*
+  T && T => T
+  T && F => F
+  
+  shortcut
+  F && T => F
+  F && F => F
+  */
+  
+  /*
+  F || T => T
+  F || F => F
+  
+  shortcut
+  T || T => T
+  T || F => T
+  */
