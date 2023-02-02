@@ -147,7 +147,7 @@ window.addEventListener("load", (event) => {
 console.log('------');
 animals.push('bird');
 animals.unshift('mouse', 'fox');
-animals.unshift(...colors); //spreadas ...
+animals.unshift(...colors); //spreadas ... ideda i masyva
 // animals.pop(); //paskutini nuima
 // animals.shift(); //pirma nuima
 console.table(animals);
