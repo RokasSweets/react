@@ -1,14 +1,23 @@
-import './App.css';
-import Cat from './components/006/Cat';
-import Racoon from './components/006/Racoon';
+import './App.scss';
+import Animal from './components/jb/Animal.jsx';
+import rand from './functions/rand.js'
 
 function App() {
+    
+
+
+    const fox = <u>FOX number: {rand(100, 199)}</u>;
+
+    const labas = <i>Labas</i>;
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <Racoon></Racoon>
-        <Racoon/>
-        <Cat/>
+        <Animal animalName="Racoon" color="green" h1Class/>
+        <Animal animalName="Fox" color="coral"/>
+        <Animal animalName="Rabiit" color="yellow"/>
+        {fox} {labas}
       </header>
     </div>
   );
