@@ -1,62 +1,63 @@
-console.log('hello');
+console.log('HeLLo');
 
-window.addEventListener("load", (event) => {
+window.addEventListener('load', () => {
     const r = document.querySelector('h1');
-    console.log(r);
-  });
-  
-  // && ||
+    // console.log(r);
+});
 
-  const A = 5;
-  const B = 7;
+// && ||
 
-
-  console.log('A && B', A && B);
-  console.log('A || B', A || B);
-
-  /*
-  T && T => T
-  T && F => F
-  
-  shortcut
-  F && T => F
-  F && F => F
-  */
-  
-  /*
-  F || T => T
-  F || F => F
-  
-  shortcut
-  T || T => T
-  T || F => T
-  */
+const A = 5;
+const B = 0;
 
 
-  const D = 0;
-
-  const SD = '' + D;
-
-  console.log(typeof D, '>>', typeof SD);
-
-
-  const S = '88';
-  const DS = +D;
-  console.log(typeof S, '>>', typeof DS);
-
-  const L1 = !!D;
-  const L2 = !!S;
-  console.log(L1, L2);
-
-  console.log('-----------');
-  //funkcijos deklaravimas
-  const sayHello = function() {
-    console.log('labas');
-    return 'va kaip viskas buvo'
-  };
+console.log('A && B', A && B);
+console.log('B && A', B && A);
+console.log('A || B', A || B);
+console.log('B || A', B || A);
 
 
-  const fun = function() {
+// console.log('A || B', A || B);
+
+/*
+T && T => T
+T && F => F
+
+shortcut
+F && T => F
+F && F => F
+*/
+
+/*
+F || T => T
+F || F => F
+
+shortcut
+T || T => T
+T || F => T
+*/
+
+const D = 0;
+const SD = '' + D;
+console.log(typeof D, '=>', typeof SD);
+
+const S = '88';
+const DS = +D;
+console.log(typeof S, '=>', typeof DS);
+
+const L1 = !!D;
+const L2 = !!S;
+console.log(L1, L2);
+console.clear();
+
+
+// deklaravimas
+const sayHello = function() {
+    // console.log('Labas');
+    return 'Va kaip viskas buvo';
+}
+
+const fun = function() {
     console.log('ONE');
     return function() {
         console.log('TWO');
@@ -64,91 +65,110 @@ window.addEventListener("load", (event) => {
             console.log('THREE');
         }
     }
-  }
+}
 
-  const tooFun = () => () => () => 'THREEE'
-  console.log(tooFun()());
-  //funkcijos kvietimas
-  sayHello();
+const tooFun = () => () => () => console.log('THREE');
 
-  console.log(sayHello());
+tooFun()()();
 
-  const vaRun = sayHello();
-  const vaNotRun = sayHello;
+// kvietimas
+// sayHello();
 
-  console.log(vaRun, vaNotRun());
+// console.log(`
+// ----------
 
-  const makeFun = fun()();
+// `);
 
-  makeFun();
+// const vaRun = sayHello();
+// const vaNotRun = sayHello;
 
-  // visos funkcijos daro tapati
-  const Hi1 = function() {
-  return 'va kaip viskas bv';
-  }
+// kvietimas
+// console.log(vaRun, vaNotRun());
 
-  const Hi2 = () => {
-    return 'va kaip viskas buvo aroow';
-  }
+// const makeFun = fun;
 
-  const Hi3 = () => 'va kajp viskas buwo';
+// makeFun()()();
 
-  const Hi4 = _ => 'vak aip wiskas buvo';
-  //parametrai
-  const funFun = (a, b) => {
-    console.log(a * b);
-  }
 
-  const _15 = 15;
-  //argumentai
-  funFun(8, _15);
 
- console.log('------------');
-  const animals = [
+const Hi_1 = function() {
+    return 'Va kaip viskas buvo';
+}
+
+const Hi_2 = () => {
+    return 'Va kaip viskas buvo';
+}
+
+const Hi_3 = () => 'Va kaip viskas buvo';
+
+const Hi_4 = _ => 'Va kaip viskas buvo';
+
+// console.log(Hi_4());
+
+// parametrai
+// const funFun = (a, b = 100) => {
+//     console.log(a - b);
+// }
+
+const _15 = 15
+
+// argumentai
+// funFun(8);
+
+console.clear();
+
+const animals = [
     'racoon',
     'beaver',
     'moose'
-  ];
+];
 
-  const colors = [
+const colors = [
     'pink',
     'crimson',
     'skyblue'
-  ];
+];
 
-  const addStars = word => console.log('* ' + word + ' *');
-  const addPluses = word => console.log('+ ' + word + ' +');
+const addStars = word => console.log('* ' + word + ' *');
+// const addPluses = word => console.log('+ ' + word + ' +');
 
-//iterator
-  const iterator = (what, fun) => {
+const iterator = (what, fun) => {
     for (let i = 0; i < what.length; i++) {
         fun(what[i]);
-  }
-  }
-
-  iterator(animals, addStars);
-  iterator(colors, addStars);
-
-  animals.forEach(word => console.log('+ ' + word + ' +'));
-  colors.forEach(addPluses);
-
-
-
-  //paprasta funkcija
-  for (let i = 0; i < animals.length; i++) {
-        addStars(animals[i]);
-  }
-
-  for (let i = 0; i < colors.length; i++) {
-    addStars(colors[i]);
+    }
 }
 
+// iterator(animals, word => console.log('+ ' + word + ' +'));
+// iterator(colors, addStars);
 
-console.log('------');
-animals.push('bird');
-animals.unshift('mouse', 'fox');
-animals.unshift(...colors); //spreadas ... ideda i masyva
-// animals.pop(); //paskutini nuima
-// animals.shift(); //pirma nuima
-console.table(animals);
-console.log(animals[1]);
+// animals.forEach(addStars);
+// colors.forEach(word => console.log('+ ' + word + ' +'));
+
+// colors.forEach((word, index) => console.log(word, index));
+
+// for (let i = 0; i < animals.length; i++) {
+//     addStars(animals[i]);
+// }
+
+// for (let i = 0; i < colors.length; i++) {
+//     addStars(colors[i]);
+// }
+
+// animals[15] = 'bird';
+
+
+
+// console.log(animals[1]);
+
+// animals.push('bird');
+animals.unshift('mouse', 'fox', 'wolf', 'rabbit');
+animals.unshift(...colors, ...animals);
+// animals.pop();
+// animals.shift();
+
+console.log({...colors })
+
+
+
+
+console.log(animals);

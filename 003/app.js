@@ -4,7 +4,8 @@ const A = [
     'c'
 ];
 
-const B = [...A]; //padaro unique kopija
+const B = [...A];
+
 const addStars = word => console.log('* ' + word + ' *');
 
 Array.prototype.go = function(fun) {
@@ -18,59 +19,62 @@ animals = [
     'beaver',
     'moose',
     'fox'
-]
+];
 
 B.push('');
 
 B.go(addStars);
 B.forEach(addStars);
 
-console.clear();
 
-const fr = B.forEach(l => console.log(l)); //neturi returno / rezultato
 
-const mr = B.map(l => l + '----->'); // grazina nauja unique kopija tam tikro masyvo
+
+
+const fr = B.forEach(l => console.log(l));
+
+
+
+const mr = B.map(l => l + '----->');
 
 console.log(fr);
 console.log(mr);
 
 console.clear();
-const filtered = animals.filter(l => l != 'beaver').map(l => l + ' *') // istrinti beaver ir gale pridet zvaigzdute
-//const filtered = animals.filter(l => l.length > 4); // grazinti tik ilgesnius zodzius nei 4 simboliai
-//console.log(B);
+
+const filtered = animals.filter(l => l != 'beaver').map(l => l + ' *');
+
+console.log(animals);
 console.log(filtered);
 
-//REACT
-
+//REACT PROGRAMER
 const out = animals.map(a => '<i style="color: crimson; display: block;">' + a + '</i>');
 
-//react inside
 
+// REACT INSIDE
 let html = '';
 out.forEach(a => html += a);
-
 document.querySelector('h1').innerHTML = html;
 
-console.clear()
+console.clear();
 
 const state = [
     'racoon',
     'beaver',
-    'moose',
-    'fox'
+    'Moose',
+    'fox',
+    'Fox'
 ];
-
-//state.push('wolf'); //keicia orginala
-//state.sort(); // keicia orginala
 
 const an = [...state];
 
+// state.push('wolf'); // mirstam
+// state.sort(); // mirstam
 
 console.log([...state, 'wolf'].sort());
 
 console.clear();
 
-an.sort((a, b) => { //didziosios raides eina pirmiau uz mazasias, sortas nuo a iki z
+an.sort((a, b) => {
     if (a > b) return 1;
     if (a < b) return -1;
     return 0;
@@ -78,22 +82,23 @@ an.sort((a, b) => { //didziosios raides eina pirmiau uz mazasias, sortas nuo a i
 
 an.sort((a, b) => b.localeCompare(a));
 
-const dig = [88, 34, 10, 158, 1]; //sort nuo maz iki didz
-
-dig.sort((a, b) => a - b);
-console.log(dig);
+const dig = [88, 34, 10, 158, 1];
 
 console.log(an);
+
+dig.sort((a, b) => b - a);
+
+console.log(dig);
 
 console.clear();
 
 const man = {};
-man.name = 'John',
+man.name = 'John';
 man.surname = 'Smith';
 
-const man2 = {...man};  //pasidarom unikalia objekto kopija
-man2.name = 'Zanas';
+const man2 = {...man };
 
+man2.name = 'Arron';
 
 const man3 = {
     name: 'Petras',
@@ -101,31 +106,42 @@ const man3 = {
 }
 
 const name = 'Lina';
-const surname = 'Lioliove';
+const surname = 'Lioliovė';
+
+// const man4 = {
+//     name: name,
+//     surname: surname
+// }
 
 const man4 = {
     name,
     surname
 }
 
+
 const prop = 'surname';
 
 const man5 = {}
-
 man5.name = 'Bronius';
 man5[prop] = 'Kisas'
 
+
 console.log(man, man2, man3, man4, man5);
+
+console.clear();
 
 const house = [man, man2, man3, man4, man5];
 
-house.sort((a , b) => {
+
+house.sort((a, b) => {
     if (a.surname > b.surname) return 1;
     if (a.surname < b.surname) return -1;
+    // pavardes vienodos
     if (a.name > b.name) return 1;
     if (a.name < b.name) return -1;
+    // ir vardai vienodi
     return 0;
 })
 
-console.log(house);
 
+console.log(house);
