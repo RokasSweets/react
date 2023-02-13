@@ -80,3 +80,61 @@ $brick: brown;
         font-size: 0.6em;
     }
 }
+
+$buttonBlue: skyblue;
+$buttonGray: gray;
+$buttonRed: red;
+$buttonCoral: coral;
+
+
+button {
+    display:inline-block;
+    padding: 0.3em 1.2em;
+    margin: 20px 10px;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight: 300;
+    color: #FFFFFF;
+    background-color: #4eb5f1;
+    text-align: center;
+    transition: all 0.2s;
+    &.blue {
+        background-color: $buttonBlue;
+        color: white;
+        &:hover {
+            background-color: darken($color: $buttonBlue, $amount: 20)
+        }
+    }
+    &.gray {
+        background-color: $buttonGray;
+        color: white;
+        &:hover {
+            background-color: darken($color: $buttonGray, $amount: 20)
+        }
+    }
+    &.red {
+        background-color: $buttonRed;
+        color: white;
+        &:hover {
+            background-color: darken($color: $buttonRed, $amount: 20)
+        }
+    }
+    &.coral {
+        background-color: $buttonCoral;
+        color: white;
+        &:hover {
+            background-color: darken($color: $buttonCoral, $amount: 20)
+        }
+    }
+    &:hover {
+        background-color:#4095c6
+    }
+    }
+
+@media all and (max-width:30em){
+    a.button3{
+        display:block;
+        margin:0.2em auto;
+    }
+    }
