@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
-
 function Fenix() {
+
+    // console.log('Fenix function');
 
     useEffect(
         () => {
@@ -16,7 +17,8 @@ function Fenix() {
     return (
         <>
         <h2>FENIX</h2>
-        </>
+         </>
+        
     );
 }
 

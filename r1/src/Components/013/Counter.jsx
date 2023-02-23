@@ -1,40 +1,48 @@
-import { useRef } from "react";
-import { useEffect } from "react";
-import { useState } from "react"
-import Fenix from "./Fenix";
+import { useEffect, useRef, useState } from 'react';
+import Fenix from './Fenix';
+
 
 function Counter() {
 
-    const [count, setCount] = useState(10);
-    const [stars, setStars] = useState('');
+    // console.log('Counter function');
 
     const a = useRef(1);
-    const start = useRef(false);
+    // const start = useRef(false);
 
-    
+    const [count, setCount] = useState(10);
+    const [starts, setStarts] = useState('');
+
+    // const fun = _ => {
+        
+    // }
+
+
+    // useEffect(() => {
+    //     if (start.current) {
+    //         console.log('count changed')
+    //     } else {
+    //         start.current = true;
+    //     }
+    // }, [count]);
+
     useEffect(() => {
-
-        if (start.current) {
-            console.log('count changed');
-        } else {
-            start.current = true;
-        };
-
+        setStarts(''.padStart(count, '*'));
     }, [count]);
 
-    useEffect(() => {
-        setStars(''.padStart(count, '*'))
-    }, [count, stars])
+    // useEffect(() => {
+    //     console.log('FUN');
+    //     fun();
+    // }, []);
 
     const add = _ => {
         setCount(c => c + 1);
-        //setStars(''.padStart(count, '*'));
-    }
-    const rem = _ => {
-        setCount(c => c - 1);
-        //setStars(''.padStart(count, '*'));
+        // setStarts(''.padStart(count, '*'));
     }
 
+    const rem = _ => {
+        setCount(c => c - 1);
+        // setStarts(''.padStart(count, '*'));
+    }
 
     const addToVar = _ => {
         console.log(++a.current);
@@ -44,10 +52,12 @@ function Counter() {
     return (
         <>
         <h1>{count}</h1>
-        <h2>{stars}</h2>
+        <h2>{starts}</h2>
         {
             count > 15 ? <Fenix/> : null
         }
+
+
         <div className="sq-bin">
             <button className="blue" onClick={add}>+1</button>
             <button className="red" onClick={rem}>-1</button>
