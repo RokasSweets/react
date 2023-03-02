@@ -1,51 +1,52 @@
-import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.scss';
-import Fox from './Components/016/Fox';
-import Home from './Components/016/Home';
-import Menu from './Components/016/Menu';
-import Racoon from './Components/016/Racoon';
-import axios from 'axios';
+import BoxLarge from './Components/018/BoxLarge';
+import GlobalSqContext from './Components/018/GlobalSqContext';
+import rand from './Functions/rand';
+import GlobalUserContext from './Components/018/GlobalUserContext';
+
+
+const users = ['Bebras','Zebras', 'Udra'];
 
 function App() {
 
-    const [page, setPage] = useState('home');
+    const [sq1, setSq1] = useState([]);
+    const [sq2, setSq2] = useState([]);
 
-    const [content, setContent] = useState(null);
+    const [user, setUser] = useState(users[rand(0, 2)]);
 
+    const addSq1 = _ => {
+        setSq1(s => [ ...s, rand(100, 999)]);
+    }
 
-    useEffect(() => {
-        axios.get('http://localhost:3003/api/' + page)
-        .then(res => {
-            setContent(res.data);
-        });
-    }, [page]);
-
+    const addSq2 = _ => {
+        setSq2(s => [...s, rand(100, 999)]);
+    }
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <GlobalUserContext.Provider value={{user}}>
 
-                <Menu setPage={setPage} />
+        <GlobalSqContext.Provider value={
+            {
+                sq1: sq1,
+                sq2
+            }
+            }>
+            <div className="App">
+                <header className="App-header">
 
-                {
-                    page === 'home' && null !== content ? <Home title={content.title} /> : null
-                }
 
-                {
-                    page === 'fox' && null !== content ? <Fox title={content.title} /> : null
-                }
+                    <BoxLarge />
 
-                {
-                    page === 'racoon' && null !== content ? <Racoon title={content.title} /> : null
-                }
 
-                {
-                    null == content ? <h1>LOADING...</h1> : null
-                }
+                    <button className="coral" onClick={addSq1}>add</button>
+                    <button className="blue" onClick={addSq2}>add</button>
+                    <button className="red" onClick={() => setUser(users[rand(0, 2)])}>user</button>
 
-            </header>
-        </div>
+                </header>
+            </div>
+        </GlobalSqContext.Provider>
+        </GlobalUserContext.Provider>
     );
 
 }
