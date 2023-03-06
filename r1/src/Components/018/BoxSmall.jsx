@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import ContextData from "./GlobalSqContext";
-import ContextData1 from "./GlobalUserContext";
+import { GlobalSqContext } from "./GlobalSqContext";
+import GlobalUserContext from "./GlobalUserContext";
 
 function BoxSmall() {
 
-    const {sq1, sq2} = useContext(ContextData);
-    const {user} = useContext(ContextData1);
+    const { sq1, sq2 } = useContext(GlobalSqContext);
+    const { user } = useContext(GlobalUserContext);
 
     return (
         <div className="box-area">
